@@ -1,46 +1,51 @@
-$(document).ready(function () {
-    $('#btn').on('click', function () {
-        var user = $('#name').val();
-        setName(user);
-        var age = $('#age').val();
-        var key = /^\d+$/.test(age);
-        setAge(key);
-        var nickname = $('#nick').val();
-        if (!user) {
-            $('.alert-danger').fadeIn(500).append('Error: <br> - Name is empty <br>');
+$(document).ready( () =>{
+  $('#recipe').on('change', ()=>{
+    var fruit = $('#recipe').val();
+    choose(fruit);
+    requestAPI();
+})
+})
+     var choose = (data)=>{
+       switch(parseInt(data)) {
+         case 1:
+         getNomPom();
+         break;
+         case 2:
+         getAvocado();
+         break;
         }
-        if (!key) {
-            $('.alert-danger').fadeIn(500).append('- Age shall be a number <br>');
-        }
-        var nicknames = false;
-        for(let i=0; i<nickname.length;i++){
-            if(nickname[i] = nickname[i].toUpperCase() && nickname.length > 9){
-                nicknames = true;
-                setSuccess('nick');
-                break;
+      }
+      // get apple
+      var getNomPom = () =>{
+        var apple = "Nom Pom";
+        printOut(apple);
+      }
+      var getAvocado = () =>{
+        var coconut = "Avocado Shake (Toek Kalok)";
+        printOut(coconut);
+      }
+      var printOut = (out) =>{
+        $('#done').html(out);
+      }
+
+      var requestAPI = () =>{
+        var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
+          $.ajax({
+            url: url,
+            dataType:'JSON',
+            success: function(data){
+              var rest ="";
+              data.recipes.forEach(item =>{
+                if(item.id == 1){
+                rest +=`
+                   <div class="card">
+                    <img src="${item.iconUrl}">
+                   </div>
+                `;
+                }
+              })
+              $('#done').append(rest);
             }
-        }
-        if(!nicknames){
-            $('.alert-danger').fadeIn(500).append('- Nickname shall contain one uppercass char');
-            setError('nick')
-        }
-        if(user && key && nicknames){
-            $('.alert-success').fadeIn(500).append('Success');
-        }
-    });
+          })
+   } 
 
-});
-function setSuccess(success) {
-    $('#' + success).addClass('border-success').removeClass('border-danger');
-}
-function setError(error) {
-    $('#' + error).addClass('border-danger').removeClass('border-success');
-
-}
-function setAge(ages) {
-    ages ? setSuccess('age') : setError('age');
-
-}
-function setName(names) {
-    names ? setSuccess('name') : setError('name');
-}
