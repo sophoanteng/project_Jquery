@@ -46,21 +46,21 @@ function showRecipe(name, img) {
         <div class="col-3"></div>
       </div>
   `;
-  $('#recipe-result').html(result);
+  $('#recipe').html(result);
 }
 function getSelection (add){
   var store = "";
   add.forEach(item => {
      store +=`
       <tr>
-          <td><img src="${item.iconUrl}" width = "90px" ></td>
+          <td><img src="${item.iconUrl}" width="30%" ></td>
           <td>${item.name}</td>
           <td>${item.quantity}</td>
           <td>${item.unit}</td>
       </tr>
      `;
   });
-  $('#ingredient').html(store);
+  $('#show').html(store);
 }
 function getStep(step){
 let cutStep = step.split('<step>');
@@ -76,6 +76,43 @@ let cutStep = step.split('<step>');
 }
 
 
+$(document).ready(function() {
+  $('#minus').on('click', function() {
+      var members = $('#member').val();
+      decreaseMember(members);
+  });
+  $('#add').on('click', function() {
+      var members = $('#member').val();
+      increaseMember(members);
+  });
+});
+
+function decreaseMember (minus) {
+  var member = parseInt(minus) - 1;
+  if(member >= 0) {
+    $('#member').val(member);
+    compute(member);
+  }
+}
+
+function increaseMember(add) {
+  var members = parseInt(add) + 1;
+  if(members <= 15) {
+      $('#member').val(members);
+      compute(members);
+      
+  }
+}
+
+function compute(number) {
+  var result = number * 5;
+  if(number == 0) {
+      progressBar(result);
+  }else {
+      progressBar(result + 25);
+  }
+  $('#show').html(result);
+}
 
 
 

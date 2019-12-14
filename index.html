@@ -20,14 +20,29 @@
     </div>
   </div>
   <div class="container mt-5">
-    <div id="recipe-result"></div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-info" type="button" id="minus">&minus;</button>
+                </div>
+                <input type="number" class="form-control text-center" value="0" disabled id="member" max="15" min="0">
+                <div class="input-group-append">
+                    <button class="btn btn-info" type="button" id="add">&#x2b;</button>
+                </div>
+            </div>     
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+  <div class="container mt-5">
+    <div id="recipe"></div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-6" id="ingredient">
-        <table class="table-bordered">
-          <tr></tr>
-        </table>
+      <div class="col-6">
+        <table class="table table-bordered" id="show"></table>
       </div>
       <div class="col-6  mt-5" id="step"></div>
     </div>
