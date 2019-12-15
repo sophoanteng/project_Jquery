@@ -99,19 +99,8 @@ function increaseMember(add) {
   var members = parseInt(add) + 1;
   if(members <= 15) {
       $('#member').val(members);
-      compute(members);
-      
+      compute(members); 
   }
-}
-
-function compute(number) {
-  var result = number * 5;
-  if(number == 0) {
-      progressBar(result);
-  }else {
-      progressBar(result + 25);
-  }
-  $('#show').html(result);
 }
 
 
