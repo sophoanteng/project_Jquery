@@ -8,6 +8,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+ <style>
+   body{
+     background-image: url(img/back.jpg);
+     background-size: cover;
+   }
+   #name{
+     color: aliceblue;
+   }
+   #color{
+     background: teal;
+     color: white;
+   }
+   #show{
+     background:rgb(3, 134, 134);
+   }
+   #mb{
+     color: aliceblue;
+   }
+ </style>
 <body>
   <div class="container mt-5">
     <div class="row">
@@ -23,6 +42,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
+          <h5 id="mb">Member</h5>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <button class="btn btn-info" type="button" id="minus">&minus;</button>
@@ -41,8 +61,10 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-6">
-        <table class="table table-bordered" id="show"></table>
+      <div class="col-6" id="show">
+        <!-- <div class="card" > -->
+          <!-- <div class="card-body"></div> -->
+        <!-- </div> -->
       </div>
       <div class="col-6  mt-5" id="step"></div>
     </div>

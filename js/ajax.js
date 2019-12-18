@@ -27,12 +27,16 @@ function takeAll(recipe) {
   });
   $('#sert').append(option);
 }
+$('#show').hide();
 function eachValue(id){
   allData.forEach(item => {
       if(item.id == id){
        showRecipe(item.name, item.iconUrl);  
        getSelection(item.ingredients);
        getStep(item.instructions);
+       content = item;
+       older = item.nbGuests;
+       $('#show').show();
       }
   });
 }
@@ -41,7 +45,7 @@ function showRecipe(name, img) {
   result += `
       <div class="row">
         <div class="col-3"></div>
-        <div class="col-3"><h2>${name}</h2></div>
+        <div class="col-3"><h2 id="name">${name}</h2></div>
         <div class="col-3"><img src= "${img}" width ="100%"></div>
         <div class="col-3"></div>
       </div>
@@ -51,13 +55,15 @@ function showRecipe(name, img) {
 function getSelection (add){
   var store = "";
   add.forEach(item => {
-     store +=`
-      <tr>
-          <td><img src="${item.iconUrl}" width="30%" ></td>
-          <td>${item.name}</td>
-          <td>${item.quantity}</td>
-          <td>${item.unit}</td>
-      </tr>
+    store +=`
+    <table class="table table-bordered">
+    <tr>
+    <td><img src="${item.iconUrl}" width="100px" ></td>
+    <td>${item.name}</td>
+    <td>${item.quantity}</td>
+    <td>${item.unit[0]}</td>
+</tr>
+    </table>
      `;
   });
   $('#show').html(store);
@@ -67,9 +73,13 @@ let cutStep = step.split('<step>');
   var resultStep ="";
    for(let i=1; i<cutStep.length; i++){
      resultStep +=`
+     <div class="card" id="color">
+     <div class="card-body">
      Step ${i} :
        ${cutStep[i]}
        <br>
+       </div>
+       </div>
      `;
    }
   $('#step').html(resultStep);
@@ -89,12 +99,32 @@ $(document).ready(function() {
 
 function decreaseMember (minus) {
   var member = parseInt(minus) - 1;
-  if(member >= 0) {
+  if(member >= 1) {
     $('#member').val(member);
-    compute(member);
+    compute($('#member').val());
   }
 }
-
+function compute(person){
+  var divice;
+  var getQuality;
+  var display = "";
+  content.ingredients.forEach(item =>{
+    var {quantity, iconUrl, name, unit} = item;
+    divice = quantity / older;
+    getQuality = divice * person;
+    display +=`
+     <table class="table table-bordered">
+    <tr>
+    <td><img src="${iconUrl}" width="30%" ></td>
+    <td>${name}</td>
+    <td>${getQuality}</td>
+    <td>${unit[0]}</td>
+</tr>
+</table>
+    `;
+  })
+   $('#show').html(display);
+}
 function increaseMember(add) {
   var members = parseInt(add) + 1;
   if(members <= 15) {
@@ -102,11 +132,3 @@ function increaseMember(add) {
       compute(members); 
   }
 }
-
-
-
-
-
-
-
-
