@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
  <style>
    body{
@@ -17,23 +19,45 @@
      color: aliceblue;
    }
    #color{
-     background: teal;
+    background:rgba(114, 74, 207, 0.767);
      color: white;
+     font-size: 20px;
    }
    #show{
-     background:rgb(3, 134, 134);
+    background:rgba(114, 74, 207, 0.767);
+   }
+   #text{
+     color: white;
+     font-size: 20px;
    }
    #mb{
-     color: aliceblue;
+     color: white;
+     margin-left: 20%;
+   }
+  
+   #footer{
+     width: 100%;
+     height: 250px;
+     background: darkcyan;
+     margin-top: 200px;
+     text-align: center;
+     color: white;
+   }
+   .col-6{
+     float: left;
    }
  </style>
 <body>
+     <img src="img/12.png" style="border-radius: 100px; width: 7%; margin-left: 20px;" alt="">
+     <p style="color: white; margin-left: 30px; font-size: 20px">Good Food</p>
   <div class="container mt-5">
     <div class="row">
-      <div class="col-4"></div>
       <div class="col-4">
+      </div>
+      <div class="col-4">
+        <h1 style="color: white">Choose Recipe</h1>
         <select  id="sert" class="form-control">
-        <option disabled selected>select a recipe</option>
+        <option disabled selected >Select a recipe</option>
       </select>
       </div>
     </div>
@@ -42,7 +66,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-          <h5 id="mb">Member</h5>
+          <h2 id="mb">Add Member</h2>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <button class="btn btn-info" type="button" id="minus">&minus;</button>
@@ -62,13 +86,29 @@
   <div class="container">
     <div class="row">
       <div class="col-6" id="show">
-        <!-- <div class="card" > -->
-          <!-- <div class="card-body"></div> -->
-        <!-- </div> -->
       </div>
       <div class="col-6  mt-5" id="step"></div>
     </div>
   </div>
+  <footer id="footer">
+     <div class="col-6">
+       <h1>Contact us</h1>
+        <div class="card" style="margin-top: 50px; border-radius: 30px">
+            <h5 style="color:black; margin-right:160px ;"> 
+                <i class="material-icons" style="font-size: 40px; color: black; top: 30px;">phone</i>
+                016 37 00 56</h5>
+            <h5 style="color:black"> 
+               <i class="material-icons" style="font-size: 40px; color: black; top: 30px;">mail</i>
+               sophoanflowers@gmail.com</h5>
+        </div>
+     </div>
+     <div class="col-6">
+       <h1>Restuarant</h1>
+       <div class="card mt-5" style="height: 100px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.013834999073!2d104.88089491412248!3d11.550865047581027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951add5e2cd81%3A0x171e0b69c7c6f7ba!2sPasserelles%20Num%C3%A9riques%20Cambodia%20(PNC)!5e0!3m2!1sen!2skh!4v1577100884314!5m2!1sen!2skh" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+       </div>
+     </div>
+  </footer>
                <script src="js/jquery-3.4.1.min.js"></script>
                 <script src="js/ajax.js"></script>
 </body>

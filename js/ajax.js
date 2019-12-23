@@ -58,10 +58,10 @@ function getSelection (add){
     store +=`
     <table class="table table-bordered">
     <tr>
-    <td><img src="${item.iconUrl}" width="100px" ></td>
-    <td>${item.name}</td>
-    <td>${item.quantity}</td>
-    <td>${item.unit[0]}</td>
+    <td><img src="${item.iconUrl}" width="100px"></td>
+    <td><p id="text">${item.name}</p></td>
+    <td><p id="text">${item.quantity}</p></td>
+    <td><p id="text">${item.unit[0]}</p></td>
 </tr>
     </table>
      `;
@@ -116,9 +116,9 @@ function compute(person){
      <table class="table table-bordered">
     <tr>
     <td><img src="${iconUrl}" width="30%" ></td>
-    <td>${name}</td>
-    <td>${getQuality}</td>
-    <td>${unit[0]}</td>
+    <td><p id="text">${name}</p></td>
+    <td><p id="text">${getQuality}</p></td>
+    <td><p id="text">${unit[0]}</p></td>
 </tr>
 </table>
     `;
