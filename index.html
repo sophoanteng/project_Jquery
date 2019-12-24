@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="img/good.png" rel="icon">
+    <title>Project JS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
@@ -19,12 +20,12 @@
      color: aliceblue;
    }
    #color{
-    background:rgba(114, 74, 207, 0.767);
+    background: teal;
      color: white;
      font-size: 20px;
    }
    #show{
-    background:rgba(114, 74, 207, 0.767);
+    background:teal;
    }
    #text{
      color: white;
@@ -46,10 +47,32 @@
    .col-6{
      float: left;
    }
+   ul li{
+     margin: 30px;
+     font-family: 'Times New Roman', Times, serif;
+    color: white;
+     list-style-type: none;
+     margin-left: 5px;
+     font-size: 20px;
+      float: left;
+   }
  </style>
 <body>
-     <img src="img/12.png" style="border-radius: 100px; width: 7%; margin-left: 20px;" alt="">
-     <p style="color: white; margin-left: 30px; font-size: 20px">Good Food</p>
+   <div class="container">
+     <div class="row">
+     <div class="col-6">
+      <img src="img/12.png" style="border-radius: 100px; width: 20%; margin-left: 20px;" alt="">
+        <p style="color: white; margin-left: 30px; font-size: 20px">Fresh Food</p>
+     </div>
+     <div class="col-6">
+       <ul>
+         <li>Show Recipe</li>
+         <li>Show Step</li>
+         <li>Show Member</li>
+       </ul> 
+     </div>
+     </div>
+   </div>
   <div class="container mt-5">
     <div class="row">
       <div class="col-4">
@@ -69,11 +92,11 @@
           <h2 id="mb">Add Member</h2>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <button class="btn btn-info" type="button" id="minus">&minus;</button>
+                    <button class="btn btn-danger" type="button" id="minus">&minus;</button>
                 </div>
                 <input type="number" class="form-control text-center" value="0" disabled id="member" max="15" min="0">
                 <div class="input-group-append">
-                    <button class="btn btn-info" type="button" id="add">&#x2b;</button>
+                    <button class="btn btn-success" type="button" id="add">&#x2b;</button>
                 </div>
             </div>    
         </div>
